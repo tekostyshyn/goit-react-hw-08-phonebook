@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
-import { addContact } from 'redux/contacts/operations';
-
+import { addContact, updateContact } from 'redux/contacts/operations';
 import { nanoid } from 'nanoid';
 import { Form, Label, Input, Button } from './ContactForm.styled';
 
@@ -13,15 +12,15 @@ const ContactForm = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
-    const phone = form.elements.number.value;
+    const number = form.elements.number.value;
 
-    const checkedContacts = contacts.find(contact => contact.name === name);
-    if (checkedContacts) {
-      alert(`${name} is already in contacts`);
+    const existingContact = contacts.find(contact => contact.name === name);
+    if (existingContact) {
+      dispatch(updateContact({ ...existingContact, number }));
       return;
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     form.reset();
   };
 

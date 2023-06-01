@@ -10,8 +10,8 @@ const Navigation = () => {
         Home
       </Link>
       {isLoggedIn && (
-        <Link className="link" to="/tasks">
-          Tasks
+        <Link className="link" to="/contacts">
+          Contacts
         </Link>
       )}
     </nav>

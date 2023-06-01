@@ -22,15 +22,15 @@ const RegisterForm = () => {
     <Form onSubmit={handleSubmit} autoComplete="off">
       <Label>
         Username
-        <input type="text" name="name" />
+        <input type="text" name="name" required />
       </Label>
       <Label>
         Email
-        <input type="email" name="email" />
+        <input type="email" name="email" required />
       </Label>
       <Label>
         Password
-        <input type="password" name="password" />
+        <input type="password" name="password" required />
       </Label>
       <button type="submit">Register</button>
     </Form>

@@ -29,17 +29,17 @@ export const App = () => {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/tasks" component={<RegisterPage />} />
+            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
         <Route
-          path="/tasks"
+          path="/contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
@@ -47,13 +47,4 @@ export const App = () => {
       </Route>
     </Routes>
   );
-
-  // <div className="container">
-  //   <h1>Phonebook</h1>
-  //   <Form />
-  //   <h2>Contacts</h2>
-  //   <Filter />
-  //   {isLoading && !error && <b>Request in progress...</b>}
-  //   <ContactsList />
-  // </div>
 };
