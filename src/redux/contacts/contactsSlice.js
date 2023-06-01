@@ -35,35 +35,12 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.items.findIndex(
-        task => task.id === action.payload.id
+        contact => contact.id === action.payload.id
       );
       state.items.splice(index, 1);
     });
     builder.addCase(deleteContact.rejected, handleRejected);
   },
-
-  // reducers: {
-  //   addContact: {
-  //     reducer(state, action) {
-  //       state.contactsList.push(action.payload);
-  //     },
-  //     prepare(name, number) {
-  //       return {
-  //         payload: {
-  //           name,
-  //           number,
-  //           id: nanoid(),
-  //         },
-  //       };
-  //     },
-  //   },
-  //   deleteContact(state, action) {
-  //     const index = state.contactsList.findIndex(
-  //       contact => contact.id === action.payload
-  //     );
-  //     state.contactsList.splice(index, 1);
-  //   },
-  // },
 });
 
 export const contactsReducer = contactsSlice.reducer;
