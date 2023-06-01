@@ -1,12 +1,12 @@
-import './Contact.scss';
 import PropTypes from 'prop-types';
+import { ListItem } from './Contact.styled';
 
 const Contact = ({ name, phone, children }) => {
   return (
-    <li className="contacts-list__item">
+    <ListItem>
       {name}: {phone}
       {children}
-    </li>
+    </ListItem>
   );
 };
 

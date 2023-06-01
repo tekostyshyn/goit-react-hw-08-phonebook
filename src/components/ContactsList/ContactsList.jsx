@@ -3,7 +3,7 @@ import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
 
 import Contact from 'components/Contact';
-import './ContactsList.scss';
+import { Button, List } from './ContactsList.styled';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
@@ -15,21 +15,20 @@ const ContactsList = () => {
 
   return (
     <>
-      <ul className="contacts-list">
+      <List>
         {visibleContacts.map(({ id, name, phone }) => (
           <Contact key={id} id={id} name={name} phone={phone}>
-            <button
-              className="contacts-list__button"
+            <Button
               type="button"
               onClick={() => {
                 dispatch(deleteContact(id));
               }}
             >
               Delete
-            </button>
+            </Button>
           </Contact>
         ))}
-      </ul>
+      </List>
     </>
   );
 };

@@ -2,19 +2,16 @@ import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/filterSlice';
 
 import { nanoid } from 'nanoid';
-import './Filter.scss';
+import { Container, Label, Input } from './Filter.styled';
 
 const Filter = () => {
   const inputId = nanoid();
   const dispatch = useDispatch();
 
   return (
-    <div className="filter">
-      <label className="filter__label" htmlFor={inputId}>
-        Find contacts by name
-      </label>
-      <input
-        className="filter__input"
+    <Container>
+      <Label htmlFor={inputId}>Find contacts by name</Label>
+      <Input
         type="text"
         name="input"
         id={inputId}
@@ -22,7 +19,7 @@ const Filter = () => {
           dispatch(setFilter(e.target.value));
         }}
       />
-    </div>
+    </Container>
   );
 };
 

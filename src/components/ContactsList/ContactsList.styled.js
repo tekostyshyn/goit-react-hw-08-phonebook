@@ -1,8 +1,10 @@
-.contacts-list {
-  list-style: none;
-}
+import styled from 'styled-components';
 
-.contacts-list__button {
+export const List = styled.ul`
+  list-style: none;
+`;
+
+export const Button = styled.button`
   margin-left: 10px;
   font-size: 14px;
   border: 1px solid black;
@@ -13,4 +15,4 @@
   &:focus {
     background-color: lightgray;
   }
-}
+`;

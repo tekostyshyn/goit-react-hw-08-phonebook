@@ -3,9 +3,9 @@ import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 
 import { nanoid } from 'nanoid';
-import './Form.scss';
+import { Form, Label, Input, Button } from './ContactForm.styled';
 
-const Form = () => {
+const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -15,27 +15,24 @@ const Form = () => {
     const name = form.elements.name.value;
     const phone = form.elements.number.value;
 
-    const checkedContacts = contacts.find(
-      contact => contact.name === name
-    );
+    const checkedContacts = contacts.find(contact => contact.name === name);
     if (checkedContacts) {
       alert(`${name} is already in contacts`);
       return;
     }
 
-    dispatch(addContact({name, phone}));
+    dispatch(addContact({ name, phone }));
     form.reset();
   };
 
   const nameInpudId = nanoid();
   const numberInpudId = nanoid();
   return (
-    <form action="" onSubmit={handleSubmit} className="form">
-      <label htmlFor={nameInpudId} className="form__label">
+    <Form action="" onSubmit={handleSubmit}>
+      <Label htmlFor={nameInpudId} c>
         Name
-      </label>
-      <input
-        className="form__input"
+      </Label>
+      <Input
         type="text"
         name="name"
         id={nameInpudId}
@@ -43,11 +40,10 @@ const Form = () => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-      <label htmlFor={numberInpudId} className="form__label">
+      <Label htmlFor={numberInpudId} c>
         Number
-      </label>
-      <input
-        className="form__input"
+      </Label>
+      <Input
         type="tel"
         name="number"
         id={numberInpudId}
@@ -55,11 +51,9 @@ const Form = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <button className="form__button" type="submit">
-        Add contact
-      </button>
-    </form>
+      <Button type="submit">Add contact</Button>
+    </Form>
   );
 };
 
-export default Form;
+export default ContactForm;
