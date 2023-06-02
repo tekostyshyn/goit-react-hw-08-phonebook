@@ -23,10 +23,11 @@ export default function Contacts() {
         <div>
           <Subtitle>Add new contact or update existing</Subtitle>
           <ContactForm />
+          <Subtitle>Find contacts by name</Subtitle>
           <Filter />
         </div>
         <div>
-        <Subtitle>List of your contacts</Subtitle>
+          <Subtitle>List of your contacts</Subtitle>
           {isLoading && !error && <b>Request in progress...</b>}
           <ContactsList />
         </div>

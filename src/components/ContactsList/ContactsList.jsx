@@ -3,7 +3,7 @@ import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
 
 import Contact from 'components/Contact';
-import { Button, List } from './ContactsList.styled';
+import { Button, List, Text } from './ContactsList.styled';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
@@ -15,20 +15,24 @@ const ContactsList = () => {
 
   return (
     <>
-      <List>
-        {visibleContacts.map(({ id, name, number }) => (
-          <Contact key={id} id={id} name={name} number={number}>
-            <Button
-              type="button"
-              onClick={() => {
-                dispatch(deleteContact(id));
-              }}
-            >
-              Delete
-            </Button>
-          </Contact>
-        ))}
-      </List>
+      {visibleContacts.length > 0 ? (
+        <List>
+          {visibleContacts.map(({ id, name, number }) => (
+            <Contact key={id} id={id} name={name} number={number}>
+              <Button
+                type="button"
+                onClick={() => {
+                  dispatch(deleteContact(id));
+                }}
+              >
+                Delete
+              </Button>
+            </Contact>
+          ))}
+        </List>
+      ) : (
+        <Text>There are no contacts in your Phonebook. You can add one!</Text>
+      )}
     </>
   );
 };

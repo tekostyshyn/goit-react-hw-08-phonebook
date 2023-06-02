@@ -4,7 +4,7 @@ import { ListItem } from './Contact.styled';
 const Contact = ({ name, number, children }) => {
   return (
     <ListItem>
-      {name}: {number}
+      <p>{name}: {number}</p>
       {children}
     </ListItem>
   );

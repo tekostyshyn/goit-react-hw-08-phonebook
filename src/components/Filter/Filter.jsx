@@ -10,7 +10,7 @@ const Filter = () => {
 
   return (
     <Container>
-      <Label htmlFor={inputId}>Find contacts by name</Label>
+      <Label htmlFor={inputId}>Name</Label>
       <Input
         type="text"
         name="input"
