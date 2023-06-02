@@ -8,8 +8,9 @@ export const Container = styled.div`
 export const Label = styled.label`
   display: block;
   font-size: 20px;
+  margin-bottom: 10px;
   font-weight: 500;
-  margin-bottom: 5px;
+  font-size: 24px;
 `;
 
 export const Input = styled.input`

@@ -24,10 +24,16 @@ export const Button = styled.button`
   font-weight: 600;
   border-radius: 4px;
   border-color: transparent;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+  &.active {
+    color: #0047ab;
+  }
 
   &:hover,
   &:focus {
-    background-color: #0047ab;
-    color: #ffffff;
+    color: #0047ab;
+    transform: scale(1.25);
   }
 `;

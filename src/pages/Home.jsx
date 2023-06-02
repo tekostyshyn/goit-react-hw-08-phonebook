@@ -1,9 +1,9 @@
-import { Container, Title } from './Home.styled';
+import { Container, Title, Span } from './Home.styled';
 
 export default function Home() {
   return (
     <Container>
-      <Title>This is an awesome App designed for storing your contacts! </Title>
+      <Title>This is an <Span>awesome</Span> App designed for storing your contacts! </Title>
     </Container>
   );
 }

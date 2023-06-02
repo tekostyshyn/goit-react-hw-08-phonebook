@@ -5,6 +5,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import ContactForm from 'components/ContactForm';
 import Filter from 'components/Filter';
 import ContactsList from 'components/ContactsList';
+import { Container, Title, Subtitle } from './Contacts.styled';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -17,12 +18,19 @@ export default function Contacts() {
 
   return (
     <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <ContactsList />
+      <Title>Phonebook</Title>
+      <Container>
+        <div>
+          <Subtitle>Add new contact or update existing</Subtitle>
+          <ContactForm />
+          <Filter />
+        </div>
+        <div>
+        <Subtitle>List of your contacts</Subtitle>
+          {isLoading && !error && <b>Request in progress...</b>}
+          <ContactsList />
+        </div>
+      </Container>
     </div>
   );
 }
